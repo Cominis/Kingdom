@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h1>MYBATIS IMPLEMENTATION</h1>
+    <h:link outcome="/MyBatis/kings-missions" value="Kings and their missions"/>
+    <h2>Kings:</h2>
+    <ol>
+        <ui:repeat value="#{kingsMyBatis.allKings}" var="king">
+            <li><h:link value="#{king.name}" outcome="knights?kingId=#{king.id}" /></li>
+            <a><h:link value="missions" outcome="/MyBatis/missions?kingId=#{king.id}" /></a>
+            <br/>
+            <span>------------</span>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{kingsMyBatis.kingToCreate.name}" required="true" />
+        <h:commandButton value="Add new king" action="#{kingsMyBatis.createKing}" />
+    </h:form>
+    <h:link value="Back to index" outcome="/index"/>
+</h:body>
+</html>

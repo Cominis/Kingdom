@@ -1,0 +1,27 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h1>MYBATIS IMPLEMENTATION</h1>
+    <h2>Missions:</h2>
+    <ol>
+        <ui:repeat value="#{missionsMyBatis.missions}" var="mission">
+            <li><b>title:</b> #{mission.title} <b>country:</b> #{mission.country}</li>
+            <span>------------</span>
+        </ui:repeat>
+    </ol>
+    <h2>Add a mission for the king:</h2>
+    <h:form>
+        <h:inputText a:placeholder="Title" value="#{missionsMyBatis.missionToCreate.title}" required="true" />
+        <h:inputText a:placeholder="Country" value="#{missionsMyBatis.missionToCreate.country}" required="true" />
+        <h:commandButton value="Add" action="#{missionsMyBatis.createMission}" >
+        <f:param name="kingId" value="#{missionsMyBatis.king.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="/MyBatis/kings" value="go back to kings page"/>
+</h:body>
+</html>

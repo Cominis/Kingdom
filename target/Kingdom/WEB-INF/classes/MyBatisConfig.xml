@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="org.daumantas.myBatis.model.King" alias="King"/>
+        <typeAlias type="org.daumantas.myBatis.model.Knight" alias="Knight"/>
+        <typeAlias type="org.daumantas.myBatis.model.Mission" alias="Mission"/>
+        <typeAlias type="org.daumantas.myBatis.model.KingMission" alias="King_Mission"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="java:/KingdomDBDataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="myBatis/KingMapper.xml"/>
+        <mapper resource="myBatis/KnightMapper.xml"/>
+        <mapper resource="myBatis/MissionMapper.xml"/>
+        <mapper resource="myBatis/KingMissionMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Knights recruited for king #{knightsForKing.king.name}:</h2>
+    <ol>
+        <ui:repeat value="#{knightsForKing.king.knights}" var="knight">
+            <li>
+                <h:link value="#{knight.name} also known as #{knight.profession}" outcome="knightDetails?knightId=#{knight.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="name" value="#{knightsForKing.knightToCreate.name}" required="true" />
+        <h:commandButton value="Recruit knight for the king" action="#{knightsForKing.createKnight}" >
+            <f:param name="kingId" value="#{knightsForKing.king.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="index" value="Back to kings page"/>
+</h:body>
+</html>

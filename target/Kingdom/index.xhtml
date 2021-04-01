@@ -1,0 +1,21 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h2>Kings:</h2>
+    <ol>
+        <ui:repeat value="#{kings.allKings}" var="king">
+            <li><h:link value="#{king.name}" outcome="knights?kingId=#{king.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{kings.kingToCreate.name}" required="true" />
+        <h:commandButton value="Add new king" action="#{kings.createKing}" />
+    </h:form>
+    <h:link outcome="MyBatis/kings" value="MyBatis implementation"/>
+    <br/>
+</h:body>
+</html> 
