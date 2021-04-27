@@ -21,4 +21,6 @@ public interface KingMissionMapper {
      * @mbg.generated Thu Apr 01 11:11:56 EEST 2021
      */
     List<KingMission> selectAll();
+
+    int getMissionsCount(Long id);
 }

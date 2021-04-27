@@ -8,7 +8,8 @@
     <h2>Kings:</h2>
     <ol>
         <ui:repeat value="#{kings.allKings}" var="king">
-            <li><h:link value="#{king.name}" outcome="knights?kingId=#{king.id}" /></li>
+            <li><h:link value="#{king.name}" outcome="knights?kingId=#{king.id}" />
+            </li>
         </ui:repeat>
     </ol>
     <h:form>
@@ -17,5 +18,6 @@
     </h:form>
     <h:link outcome="MyBatis/kings" value="MyBatis implementation"/>
     <br/>
+    <h:link outcome="kingMission" value="King mission"/>
 </h:body>
 </html> 

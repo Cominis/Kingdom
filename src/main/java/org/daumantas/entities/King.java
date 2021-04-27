@@ -13,7 +13,11 @@ import java.util.Objects;
         @NamedQuery(
                 name = "King.findAll",
                 query = "SELECT k FROM King AS k"
-        )
+        ),
+//        @NamedQuery(
+//                name = "King.kingAndMissions",
+//                query = "SELECT k.name AS name, m.title AS title FROM King AS k JOIN k.missions AS m GROUP BY k.name"
+//        )
 })
 @Table(name = "KING")
 @Getter @Setter

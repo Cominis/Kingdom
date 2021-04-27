@@ -3,6 +3,7 @@ package org.daumantas.usecases.myBatis;
 import lombok.Getter;
 import lombok.Setter;
 import org.daumantas.myBatis.DAO.KingMapper;
+import org.daumantas.myBatis.DAO.KingMissionMapper;
 import org.daumantas.myBatis.model.King;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,9 @@ public class KingsMyBatis {
     @Inject
     private KingMapper kingMapper;
 
+    @Inject
+    private KingMissionMapper kingMissionMapper;
+
     @Getter
     private List<King> allKings;
 
@@ -27,10 +31,14 @@ public class KingsMyBatis {
         this.loadAllKings();
     }
 
+
     private void loadAllKings() {
         this.allKings = kingMapper.selectAll();
     }
 
+    public int loadMissionsCount(long kingId) {
+        return kingMissionMapper.getMissionsCount(kingId);
+    }
 
     @Transactional
     public String createKing() {

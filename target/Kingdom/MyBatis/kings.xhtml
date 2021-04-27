@@ -11,7 +11,7 @@
     <h2>Kings:</h2>
     <ol>
         <ui:repeat value="#{kingsMyBatis.allKings}" var="king">
-            <li><h:link value="#{king.name}" outcome="knights?kingId=#{king.id}" /></li>
+            <li><h:link value="#{king.name} | count: #{kingsMyBatis.loadMissionsCount(king.id)}" outcome="knights?kingId=#{king.id}" /></li>
             <a><h:link value="missions" outcome="/MyBatis/missions?kingId=#{king.id}" /></a>
             <br/>
             <span>------------</span>
